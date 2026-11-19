@@ -1,24 +1,36 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body { width: 100%; height: 100%; overflow: hidden; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
 /* พื้นหลัง 02png.png เต็มจอ */
 body {
-  background: #efe6d2 url("../images/02png.png") center center / cover no-repeat;
+  background: #efe6d2 url("02png.png") center center / cover no-repeat;
 }
 
-/* เวทีขนาดพิกเซลเท่าภาพต้นฉบับ (1672 x 941) แล้วย่อ/ขยายด้วย JS ให้เท่ากับ background-size: cover
-   ทำให้ตัวเลขและปุ่มทับตำแหน่งเดิมในรูป 01 พอดีทุกขนาดหน้าจอ */
+/* เวทีขนาดพิกเซลเท่าภาพต้นฉบับ */
 #stage {
   position: absolute;
-  left: 50%; top: 50%;
-  width: 1672px; height: 941px;
+  left: 50%;
+  top: 50%;
+  width: 1672px;
+  height: 941px;
   transform-origin: 0 0;
   visibility: hidden;
 }
 
 .value {
-  position: absolute; left: 0; top: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
   white-space: nowrap;
   font-family: "Nunito", "Segoe UI", Arial, sans-serif;
   font-weight: 300;
@@ -27,29 +39,43 @@ body {
   user-select: none;
 }
 
-/* ปุ่ม toggle: ราง (track) + ลูกกลม (knob) */
+/* ปุ่ม Toggle */
 .toggle {
   position: absolute;
-  border: 0; padding: 0;
+  border: 0;
+  padding: 0;
   background: transparent;
   cursor: pointer;
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
+
 .toggle .track {
-  position: absolute; left: 0; right: 0; top: 1px; bottom: 1px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1px;
+  bottom: 1px;
   border-radius: 999px;
   background: rgba(246, 190, 100, .78);
 }
+
 .toggle .knob {
-  position: absolute; left: 0; top: 0;
-  width: 43px; height: 43px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 43px;
+  height: 43px;
   border-radius: 50%;
   background: #e9a72f;
   transition: transform .25s ease, background .25s ease;
 }
+
 .toggle[aria-checked="true"] .knob {
   transform: translateX(var(--travel));
   background: #d98d12;
 }
-.toggle:focus-visible .track { box-shadow: 0 0 0 3px rgba(80, 120, 170, .6); }
+
+.toggle:focus-visible .track {
+  box-shadow: 0 0 0 3px rgba(80, 120, 170, .6);
+}
